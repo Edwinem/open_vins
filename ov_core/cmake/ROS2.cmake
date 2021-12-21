@@ -43,6 +43,7 @@ add_library(ov_core_lib SHARED
         src/feat/Feature.cpp
         src/feat/FeatureInitializer.cpp
         src/utils/print.cpp
+        src/track/TrackPython.cpp
 )
 ament_target_dependencies(ov_core_lib rclcpp cv_bridge)
 target_link_libraries(ov_core_lib ${thirdparty_libraries})

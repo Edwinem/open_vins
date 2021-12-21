@@ -246,6 +246,15 @@ public:
     feat_tracks_uvd = active_tracks_uvd;
   }
 
+  void set_feature_tracker(std::shared_ptr<ov_core::TrackBase>& feature_tracker){
+    trackFEATS = feature_tracker;
+    if(updaterZUPT){
+      updaterZUPT = std::make_shared<UpdaterZeroVelocity>(params.zupt_options, params.imu_noises, feature_tracker->get_feature_database(),
+                                                          propagator, params.gravity_mag, params.zupt_max_velocity,
+                                                          params.zupt_noise_multiplier, params.zupt_max_disparity);
+    }
+  }
+
 protected:
   /**
    * @brief Given a new set of camera images, this will track them.

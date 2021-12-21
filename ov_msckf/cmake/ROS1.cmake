@@ -40,7 +40,8 @@ list(APPEND thirdparty_libraries
 if (NOT catkin_FOUND OR NOT ENABLE_ROS)
 
     message(WARNING "MANUALLY LINKING TO OV_CORE LIBRARY....")
-    include_directories(${CMAKE_SOURCE_DIR}/../ov_core/src/)
+    #include_directories(${CMAKE_SOURCE_DIR}/../ov_core/src/)
+    include_directories(../ov_core/src/)
     file(GLOB_RECURSE ov_core_files "${CMAKE_SOURCE_DIR}/../ov_core/src/cam/*.cpp")
     list(APPEND library_source_files ${ov_core_files})
     file(GLOB_RECURSE ov_core_files "${CMAKE_SOURCE_DIR}/../ov_core/src/cpi/*.cpp")
@@ -59,7 +60,8 @@ if (NOT catkin_FOUND OR NOT ENABLE_ROS)
     list(APPEND library_source_files ${ov_core_files})
 
     message(WARNING "MANUALLY LINKING TO OV_INIT LIBRARY....")
-    include_directories(${CMAKE_SOURCE_DIR}/../ov_init/src/)
+    #include_directories(${CMAKE_SOURCE_DIR}/../ov_init/src/)
+    include_directories(../ov_init/src/)
     file(GLOB_RECURSE ov_init_files "${CMAKE_SOURCE_DIR}/../ov_init/src/*.[hc]pp")
     list(APPEND library_source_files ${ov_init_files})
 

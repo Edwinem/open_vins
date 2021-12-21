@@ -448,7 +448,7 @@ void TrackDescriptor::perform_detection_stereo(const cv::Mat &img0, const cv::Ma
 }
 
 void TrackDescriptor::robust_match(std::vector<cv::KeyPoint> &pts0, std::vector<cv::KeyPoint> pts1, cv::Mat &desc0, cv::Mat &desc1,
-                                   size_t id0, size_t id1, std::vector<cv::DMatch> &matches) {
+                                   size_t id0, size_t id1, std::vector<cv::DMatch> &matches) const {
 
   // Our 1to2 and 2to1 match vectors
   std::vector<std::vector<cv::DMatch>> matches0to1, matches1to0;
@@ -505,7 +505,7 @@ void TrackDescriptor::robust_match(std::vector<cv::KeyPoint> &pts0, std::vector<
   }
 }
 
-void TrackDescriptor::robust_ratio_test(std::vector<std::vector<cv::DMatch>> &matches) {
+void TrackDescriptor::robust_ratio_test(std::vector<std::vector<cv::DMatch>> &matches) const{
   // Loop through all matches
   for (auto &match : matches) {
     // If 2 NN has been identified, else remove this feature
@@ -522,7 +522,7 @@ void TrackDescriptor::robust_ratio_test(std::vector<std::vector<cv::DMatch>> &ma
 }
 
 void TrackDescriptor::robust_symmetry_test(std::vector<std::vector<cv::DMatch>> &matches1, std::vector<std::vector<cv::DMatch>> &matches2,
-                                           std::vector<cv::DMatch> &good_matches) {
+                                           std::vector<cv::DMatch> &good_matches) const {
   // for all matches image 1 -> image 2
   for (auto &match1 : matches1) {
     // ignore deleted matches

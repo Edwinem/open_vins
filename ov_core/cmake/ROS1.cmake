@@ -50,6 +50,7 @@ add_library(ov_core_lib SHARED
         src/feat/Feature.cpp
         src/feat/FeatureInitializer.cpp
         src/utils/print.cpp
+        src/track/TrackPython.cpp
 )
 target_link_libraries(ov_core_lib ${thirdparty_libraries})
 target_include_directories(ov_core_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/)
